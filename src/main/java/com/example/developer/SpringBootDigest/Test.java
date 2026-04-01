@@ -15,18 +15,13 @@ public class Test {
 
         List<EmployeeDto> empList = EmployeeDto.getEmployeeData ( );
 
-        Map<String, Double> doubleMap = empList.stream ( )
-                .filter (f -> !StringUtils.isBlank (f.getDep ( ))
-                        && f.getSalary ( ) != 0)
-                .collect (Collectors.groupingBy (EmployeeDto::getDep,
-                        Collectors.averagingDouble (EmployeeDto::getSalary)));
+        Map<String, Double> doubleMap = empList.stream ( ).filter (f -> !StringUtils.isBlank (f.getDep ( )) && f.getSalary ( ) != 0)
+                .collect (Collectors.groupingBy (EmployeeDto::getDep, Collectors.averagingDouble (EmployeeDto::getSalary)));
+
         System.out.println ("UnSorted map : " + doubleMap );
 
-        LinkedHashMap<String, Double> collect = empList.stream ( )
-                .filter (f -> !StringUtils.isBlank (f.getDep ( ))
-                        && f.getSalary ( ) != 0)
-                .collect (Collectors.groupingBy (EmployeeDto::getDep,
-                        Collectors.averagingDouble (EmployeeDto::getSalary)))
+        LinkedHashMap<String, Double> collect = empList.stream ( ).filter (f -> !StringUtils.isBlank (f.getDep ( )) && f.getSalary ( ) != 0)
+                .collect (Collectors.groupingBy (EmployeeDto::getDep, Collectors.averagingDouble (EmployeeDto::getSalary)))
                 .entrySet ( ).stream ( ).sorted (Map.Entry.<String, Double>comparingByValue ( Comparator.reverseOrder ())
                         .thenComparing (Map.Entry.comparingByKey ())).collect (Collectors.toMap (
                         Map.Entry::getKey,
@@ -37,11 +32,8 @@ public class Test {
 
         System.out.println ("Sorted map result : " + collect );
 
-        List<Map.Entry<String, Double>> list = empList.stream ( )
-                .filter (f -> !StringUtils.isBlank (f.getDep ( ))
-                        && f.getSalary ( ) != 0)
-                .collect (Collectors.groupingBy (EmployeeDto::getDep,
-                        Collectors.averagingDouble (EmployeeDto::getSalary)))
+        List<Map.Entry<String, Double>> list = empList.stream ( ).filter (f -> !StringUtils.isBlank (f.getDep ( )) && f.getSalary ( ) != 0)
+                .collect (Collectors.groupingBy (EmployeeDto::getDep, Collectors.averagingDouble (EmployeeDto::getSalary)))
                 .entrySet ( ).stream ( ).sorted (Map.Entry.<String, Double>comparingByValue ( ).reversed ( ))
                 .collect (Collectors.toMap (
                         Map.Entry::getKey,
