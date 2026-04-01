@@ -35,7 +35,7 @@ public class Test {
                         LinkedHashMap::new
                 ));
 
-        System.out.println ("Sorted map : " + collect );
+        System.out.println ("Sorted map result : " + collect );
 
         List<Map.Entry<String, Double>> list = empList.stream ( )
                 .filter (f -> !StringUtils.isBlank (f.getDep ( ))
