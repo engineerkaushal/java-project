@@ -75,7 +75,7 @@ public class EmployeeDto {
                 new EmployeeDto (7, "Mukul", "BA", 98000.0, 28, Arrays.asList ()),
                 new EmployeeDto (8, "Rama", "QA", 110000.0, 45, Arrays.asList ("Testing")),
                 new EmployeeDto (9, "Kaushal", "DevOps", 105000.0, 29, Arrays.asList ()),
-                new EmployeeDto (10, "Sunny", "DevOps", 99500.0, 30, Arrays.asList ())
+                new EmployeeDto (10, "Sunny", "DevOps", 99500.0, 30, Arrays.asList ("EC2, ECS, RDS"))
         );
     }
 }
