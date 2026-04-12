@@ -1,6 +1,7 @@
 package com.example.developer.SpringBootDigest.oneToManyEntity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -28,7 +29,7 @@ public class CustomerEntity implements Serializable {
     private Long mobileNumber;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnore
+    @JsonManagedReference
     private List<OrderEntity>  orders;
 
     public Integer getCustomerId() {
@@ -79,15 +80,5 @@ public class CustomerEntity implements Serializable {
         this.orders = orders;
     }
 
-    @Override
-    public String toString() {
-        return "CustomerEntity{" +
-                "customerId=" + customerId +
-                ", customerName='" + customerName + '\'' +
-                ", customerAge=" + customerAge +
-                ", email='" + email + '\'' +
-                ", mobileNumber=" + mobileNumber +
-                ", orders=" + orders +
-                '}';
-    }
+
 }
