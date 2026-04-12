@@ -1,5 +1,6 @@
 package com.example.developer.SpringBootDigest.oneToManyEntity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.io.Serializable;
 
@@ -23,6 +24,7 @@ public class OrderEntity implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "cust_id")
+    @JsonBackReference
     private CustomerEntity customer;
 
     public Integer getOrderId() {

@@ -20,6 +20,7 @@ spring:
     properties:
       format_sql: true
     database-platform: org.hibernate.dialect.MySQLDialect
+    open-in-view: false
 
 #Actuator
 management:
